@@ -35,4 +35,4 @@ I created a small dataset for Tom and jerry using a project on github called yol
 In the darkflow folder there is the dataset of 336 images, along with the xml that contain the label, amd the coordinates for the surrounding rectangle.
 
 I trained Yolov2 on the custom dataset, and after a few(a lot) of tries it worked well.
-[![Demo NotOK alpha](ressources/good_classification.gif)](ressources/good_classification.gif)
+[![Demo OK alpha](ressources/good_class2.gif)](ressources/good_class2.gif.gif)
