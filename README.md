@@ -34,5 +34,19 @@ The problem encountered was that yolov2 wasn't trained to detect tom or jerry, i
 I created a small dataset for Tom and jerry using a project on github called yoloAnnotationTool: https://github.com/2vin/yolo_annotation_tool
 In the darkflow folder there is the dataset of 336 images, along with the xml that contain the label, amd the coordinates for the surrounding rectangle.
 
-I trained Yolov2 on the custom dataset, and after a few(a lot) of tries it worked well.
+I trained Yolov2 on the custom dataset, and after a few(a lot) of tries it worked well and classified correctly Tom and Jerry.
+In darkflof folder in darkflow2.py are all the commands I used to custom train the model. In the weights folder are the weights obtained and also the dataset with the correspondin txt and xml annotations.
 [![Demo OK alpha](ressources/good_class2.gif)](ressources/good_class2.gif.gif)
+
+## Extracting the caracter from the image
+
+After the Yolo model was trained I started to process the images. Each classification returned the label and the surroundimg rectangle. But more then a cropped image I neede to store only the pixels that contained the character, and not the background.
+First of all, I grayscaled and binarized the image too see how hard will it be for the algorithm to extract the caracter and how much noise is there.<br/>  
+![alt text](ressources/1.png)
+![alt text](ressources/2.png)
+Because there was a lot of noise in the image I had to get rid of it. After several tests I decided to use median blur.The Median blur operation is an averaging method. The central element of the image is replaced by the median of all the pixels in the kernel area. This operation processes the edges for removing the noise.<br/>
+![alt text](ressources/3.png)
+After the blur there was still some noise so I used an erosion<br/>
+![alt text](ressources/4.png)
+Now the image was clear, but the contour of the character was interrupted. I needed to unify the contour, so I used a dilation<br/>
+![alt text](ressources/4.png)
