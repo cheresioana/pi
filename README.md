@@ -44,9 +44,11 @@ After the Yolo model was trained I started to process the images. Each classific
 First of all, I grayscaled and binarized the image too see how hard will it be for the algorithm to extract the caracter and how much noise is there.<br/>  
 ![alt text](ressources/1.png)
 ![alt text](ressources/2.png)
-Because there was a lot of noise in the image I had to get rid of it. After several tests I decided to use median blur.The Median blur operation is an averaging method. The central element of the image is replaced by the median of all the pixels in the kernel area. This operation processes the edges for removing the noise.<br/>
+Because there was a lot of noise in the image I had to get rid of it. After several tests I decided to use median blur.The Median blur operation is an averaging method. The central element of the image is replaced by the median of all the pixels in the kernel area. This operation processes the edges for removing the noise.After the blur there was still some noise so I used an erosion<br/>
 ![alt text](ressources/3.png)
-After the blur there was still some noise so I used an erosion<br/>
-![alt text](ressources/4.png)
-Now the image was clear, but the contour of the character was interrupted. I needed to unify the contour, so I used a dilation<br/>
-![alt text](ressources/4.png)
+![alt text](ressources/4.png)<br/>
+Now the image was clear, but the contour of the character was interrupted. I needed to unify the contour, so I used a dilation. Then, with find contours, I took the biggest contour from the image (which was my character) and draw it.<br/>
+![alt text](ressources/5.png)
+![alt text](ressources/6.png)<br/>
+Last but not least, I created a mask with all the pixels from inside the contour. I created a 4 channel image, and set all pixels except from the character pixels with opacity 0, and then copied the object pixels from the original image.<br/>
+![alt text](ressources/7.png)<br/>
