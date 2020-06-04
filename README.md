@@ -75,4 +75,4 @@ At this step in the file model_predict are the frames encoded as numbers: x and 
 After the generation of the frames, I have written a short script that takes all the frames in order and combines them in an avi file. The script is in generate_video/generate_video.py
 
 
-[![Demo NotOK alpha](ressources/res1.gif)](ressources/res1.gif)
+[![Demo NotOK alpha](ressources/res2.gif)](ressources/res2.gif)
