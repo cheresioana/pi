@@ -57,6 +57,20 @@ Last but not least, I created a mask with all the pixels from inside the contour
 
 With the algorithm mentioned above I parsed each frame of the movie, saving all the data in a csv file.
 In the csv file was saved the x and y coordinates of Tom, along with the png, and the x and y coordinates of Jerry with their corresponding png. In case a character was not in a frame, the data was -1 on all 3 fields. In order to represent accurately the timimng of the data, I considered that each frame is a clue to the next one. So after the 6 columns mentioned above, there was a prediction regarding the next frame. The prediction at this step were the exact coordinates and coorresponding png of the characters from the next frame.
-And in this way it was generated the csv with the following header
+And in this way it was generated the csv, that can be found in model/data.txt, with the following header
 
 x_tom,y_tom,photo_tom,x_jerry,y_jerry,photo_jerry,pred_x_tom,pred_y_tom,pred_photo_tom,pred_x_jerry,pred_y_jerry,pred_photo_jerry
+
+## Model and more data preprocessing
+
+For the model I used a MimMaxScaler to scale all data between -1 and 1. For the neural network I used a LSTM layer combined with a fully connected layer with 6 outputs that represent the x and y coordinates of Tom, along with the png, and the x and y coordinates of Jerry with their corresponding png. After 150 epochs trainingI considered that the model has trained enough.\\
+
+I took a random number with the corresponding train data. From that data, the model predicted 20 frames forward. I repeated the process for 20 times.
+Then, I took all predictions and scaled them inverse to obtain the right data, and saved them in a txt. One of the txt can be found in model/model_predict3.txt.
+
+## Frame composition and video generation
+
+At this step in the file model_predict are the frames encoded as numbers: x and y coordinates of Tom, along with the png, and the x and y coordinates of Jerry with their corresponding png. For every prediction of the model, I created a new frame with the size of the initial frame. Then, I composed the predicted png at the predicted locations, building the frame of the video. Because of the transparent pixels, the character can overlap. The code is in generate_video/compose_frames.py
+
+After the generation of the frames, I have written a short script that takes all the frames in order and combines them in an avi file. The script is in generate_video/generate_video.py
+
