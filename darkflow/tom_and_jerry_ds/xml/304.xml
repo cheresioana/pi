@@ -1,0 +1,14 @@
+<annotation>
+  <folder>img</folder>
+  <filename>304.jpg</filename>
+  <path>img</path>
+  <source>
+    <database>Unknown</database>
+  </source>
+  <size>
+    <width>640</width>
+    <height>480</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+</annotation>
