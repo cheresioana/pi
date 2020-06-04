@@ -30,3 +30,9 @@ These bounding boxes are weighted by the predicted probabilities.
 
 The problem encountered was that yolov2 wasn't trained to detect tom or jerry, instead it had a chaotic output.
 [![Demo NotOK alpha](ressources/not_good.gif)](ressources/not_good.gif)
+
+I created a small dataset for Tom and jerry using a project on github called yoloAnnotationTool: https://github.com/2vin/yolo_annotation_tool
+In the darkflow folder there is the dataset of 336 images, along with the xml that contain the label, amd the coordinates for the surrounding rectangle.
+
+I trained Yolov2 on the custom dataset, and after a few(a lot) of tries it worked well.
+[![Demo NotOK alpha](ressources/good_classification.gif)](ressources/good_classification.gif)
