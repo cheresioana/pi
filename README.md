@@ -29,4 +29,4 @@ This network divides the image into regions and predicts bounding boxes and prob
 These bounding boxes are weighted by the predicted probabilities.
 
 The problem encountered was that yolov2 wasn't trained to detect tom or jerry, instead it had a chaotic output.
-[![Demo CountPages alpha](https://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
+[![Demo CountPages alpha](ressources/not_good_classification.avi)]
