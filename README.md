@@ -54,3 +54,9 @@ Last but not least, I created a mask with all the pixels from inside the contour
 <p align="center">
   <img width="425" height="404" src="ressources/7.png">
 </p>
+
+With the algorithm mentioned above I parsed each frame of the movie, saving all the data in a csv file.
+In the csv file was saved the x and y coordinates of Tom, along with the png, and the x and y coordinates of Jerry with their corresponding png. In case a character was not in a frame, the data was -1 on all 3 fields. In order to represent accurately the timimng of the data, I considered that each frame is a clue to the next one. So after the 6 columns mentioned above, there was a prediction regarding the next frame. The prediction at this step were the exact coordinates and coorresponding png of the characters from the next frame.
+And in this way it was generated the csv with the following header
+
+x_tom,y_tom,photo_tom,x_jerry,y_jerry,photo_jerry,pred_x_tom,pred_y_tom,pred_photo_tom,pred_x_jerry,pred_y_jerry,pred_photo_jerry
